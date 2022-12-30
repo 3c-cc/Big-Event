@@ -5,6 +5,9 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+
+//导入全局样式表
+import '@/assets/global.less'
 new Vue({
   router,
   store,
