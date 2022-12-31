@@ -1,10 +1,6 @@
 <template>
-  <div>
-    <h1>
-      App 根组件
-
-    </h1>
-  </div>
+  <!-- 路由出口 -->
+      <router-view></router-view>
 </template>
 
 <script>
