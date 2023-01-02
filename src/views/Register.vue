@@ -9,34 +9,21 @@
       <el-form :model="regForm" :rules="regFormRules" ref="regFormRef">
         <!-- 用户名 -->
         <el-form-item prop="username">
-          <el-input
-            placeholder="请输入用户名"
-            prefix-icon="el-icon-user"
-            v-model="regForm.username"
-          ></el-input>
+          <el-input placeholder="请输入用户名" prefix-icon="el-icon-user" v-model="regForm.username"></el-input>
         </el-form-item>
         <!-- 密码 -->
         <el-form-item prop="password">
-          <el-input
-            type="password"
-            placeholder="请输入密码"
-            prefix-icon="el-icon-lock"
-            v-model="regForm.password"
-          ></el-input>
+          <el-input type="password" placeholder="请输入密码" prefix-icon="el-icon-lock"
+            v-model="regForm.password"></el-input>
         </el-form-item>
         <!-- 确认密码 -->
         <el-form-item prop="repassword">
-          <el-input
-            type="password"
-            placeholder="请再次确认密码"
-            prefix-icon="el-icon-lock"
-            v-model="regForm.repassword"
-          ></el-input>
+          <el-input type="password" placeholder="请再次确认密码" prefix-icon="el-icon-lock"
+            v-model="regForm.repassword"></el-input>
         </el-form-item>
+        <!-- 注册按钮和切换登录按钮 -->
         <el-form-item>
-          <el-button @click="doRegister" type="primary" class="btn-reg"
-            >注册</el-button
-          >
+          <el-button @click="doRegister" type="primary" class="btn-reg">注册</el-button>
           <el-link @click="$router.push('/login')" type="info">去登录</el-link>
         </el-form-item>
       </el-form>
