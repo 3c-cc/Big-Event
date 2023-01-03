@@ -12,8 +12,8 @@ import Main from "@/views/Main.vue"
 // 2.配置路由规则
 const routes = [
   {path: '/' , component: Main },
-  {path: '/register' , component: Register },
-  {path: '/login' , component: Login },
+  {path: '/Register' , component: Register },
+  {path: '/Login' , component: Login },
 
 ]
 

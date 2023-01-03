@@ -6,13 +6,13 @@
       <!-- 标题的盒子 -->
       <div class="title-box"></div>
       <!-- 登录的表单区域 -->
-      <el-form>
+      <el-form :model="loginForm" :rules="loginFormRules" ref="loginRef">
         <!-- 用户名 -->
-        <el-form-item>
+        <el-form-item prop="username">
           <el-input placeholder="请输入用户名" prefix-icon="el-icon-user" v-model="loginForm.username"></el-input>
         </el-form-item>
         <!-- 密码 -->
-        <el-form-item>
+        <el-form-item prop="password">
           <el-input type="password" placeholder="请输入密码" prefix-icon="el-icon-lock"
             v-model="loginForm.password"></el-input>
         </el-form-item>
@@ -35,9 +35,49 @@ export default {
       loginForm: {
         username: "",
         password: ""
+      },
+      // (2)登录表单验证对象
+      loginFormRules: {
+        // 用户名的规则
+        username: [
+          { required: true, message: "用户名不能为空", trigger: "blur" },
+          {
+            pattern: /^[a-zA-Z0-9]{1,10}$/,
+            message: "用户名必须是1-10位的字母数字",
+            trigger: "blur"
+          }
+        ],
+        password: [
+          { required: true, message: "密码不能为空", trigger: "blur" },
+          {
+            pattern: /^\S{6,15}$/,
+            message: "密码必须是6-15位的非空字符",
+            trigger: "blur"
+          }
+        ],
       }
-      // (2)表单验证对象
     };
+  },
+  methods: {
+    // 点击登录按钮
+    doLogin() {
+      // 1. 表单校验
+      this.$refs.loginRef.validate(async valid => {
+        if (valid) {
+          // 发起请求
+          console.log(valid);
+          const { data: res } = await this.$axios.post("/api/login", this.loginForm)
+          if (res.code == 0) {
+            // 成功
+            this.$message.success(res.message)
+            //跳转你首页
+            this.$router.push("/")
+          } else {
+            this.$message.error(res.message)
+          }
+        }
+      });
+    }
   }
 };
 </script>

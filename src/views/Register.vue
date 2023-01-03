@@ -24,7 +24,7 @@
         <!-- 注册按钮和切换登录按钮 -->
         <el-form-item>
           <el-button @click="doRegister" type="primary" class="btn-reg">注册</el-button>
-          <el-link @click="$router.push('/login')" type="info">去登录</el-link>
+          <el-link @click="$router.push('/Login')" type="info">去登录</el-link>
         </el-form-item>
       </el-form>
     </div>
@@ -105,7 +105,7 @@ export default {
             this.$message.success("注册成功，请登录！");
             this.$router.push("/login");
           }
-        }
+        }src/views/Login.vue
       });
     }
   }
