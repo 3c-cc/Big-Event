@@ -65,9 +65,13 @@ export default {
       this.$refs.loginRef.validate(async valid => {
         if (valid) {
           // 发起请求
-          console.log(valid);
+          // console.log(valid);
           const { data: res } = await this.$axios.post("/api/login", this.loginForm)
           if (res.code == 0) {
+            console.log(this.loginForm);
+            // console.log(res);
+            // debugger
+            this.$store.commit('setToken',res.token)
             // 成功
             this.$message.success(res.message)
             //跳转你首页
@@ -81,7 +85,7 @@ export default {
   }
 };
 </script>
-
+<!-- ReservationsysLogin -->
 <style lang="less" scoped>
 .login-container {
   background: url("@/assets/images/login_bg.jpg") center;

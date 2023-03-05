@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+/01-vue大事件项目笔记
 
 
 # local env files
